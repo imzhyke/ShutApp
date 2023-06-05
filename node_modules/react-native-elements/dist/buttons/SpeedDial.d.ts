@@ -1,0 +1,90 @@
+import React from 'react';
+import { FABProps } from './FAB';
+import { IconNode } from '../icons/Icon';
+import { RneFunctionComponent } from '../helpers';
+export declare type SpeedDialActionProps = Omit<FABProps, 'size'>;
+export declare type SpeedDialProps = {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+    openIcon?: IconNode;
+    overlayColor?: string;
+    children?: React.ReactChild[];
+    transitionDuration?: number;
+} & FABProps;
+declare const SpeedDial: RneFunctionComponent<SpeedDialProps>;
+export { SpeedDial };
+declare const _default: (React.FunctionComponent<Omit<{
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+    openIcon?: IconNode;
+    overlayColor?: string;
+    children?: React.ReactChild[];
+    transitionDuration?: number;
+} & import("react-native").TouchableOpacityProps & import("react-native").TouchableNativeFeedbackProps & {
+    title?: string | React.ReactElement<{}, string | React.JSXElementConstructor<any>>;
+    titleStyle?: import("react-native").StyleProp<import("react-native").TextStyle>;
+    titleProps?: import("..").TextProps;
+    buttonStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    type?: "solid" | "clear" | "outline";
+    loading?: boolean;
+    loadingStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    loadingProps?: import("react-native").ActivityIndicatorProps;
+    containerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    icon?: IconNode;
+    iconContainerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    iconRight?: boolean;
+    linearGradientProps?: object;
+    TouchableComponent?: typeof React.Component;
+    ViewComponent?: typeof React.Component;
+    disabled?: boolean;
+    disabledStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    disabledTitleStyle?: import("react-native").StyleProp<import("react-native").TextStyle>;
+    raised?: boolean;
+    iconPosition?: "bottom" | "left" | "right" | "top";
+} & {
+    color?: string;
+    size?: "small" | "large";
+    placement?: "left" | "right";
+    visible?: boolean;
+    upperCase?: boolean;
+} & Partial<import("../config").ThemeProps<SpeedDialProps>>, keyof import("../config").ThemeProps<T>>> | React.ForwardRefExoticComponent<{
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+    openIcon?: IconNode;
+    overlayColor?: string;
+    children?: React.ReactChild[];
+    transitionDuration?: number;
+} & import("react-native").TouchableOpacityProps & import("react-native").TouchableNativeFeedbackProps & {
+    title?: string | React.ReactElement<{}, string | React.JSXElementConstructor<any>>;
+    titleStyle?: import("react-native").StyleProp<import("react-native").TextStyle>;
+    titleProps?: import("..").TextProps;
+    buttonStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    type?: "solid" | "clear" | "outline";
+    loading?: boolean;
+    loadingStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    loadingProps?: import("react-native").ActivityIndicatorProps;
+    containerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    icon?: IconNode;
+    iconContainerStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    iconRight?: boolean;
+    linearGradientProps?: object;
+    TouchableComponent?: typeof React.Component;
+    ViewComponent?: typeof React.Component;
+    disabled?: boolean;
+    disabledStyle?: import("react-native").StyleProp<import("react-native").ViewStyle>;
+    disabledTitleStyle?: import("react-native").StyleProp<import("react-native").TextStyle>;
+    raised?: boolean;
+    iconPosition?: "bottom" | "left" | "right" | "top";
+} & {
+    color?: string;
+    size?: "small" | "large";
+    placement?: "left" | "right";
+    visible?: boolean;
+    upperCase?: boolean;
+} & Partial<import("../config").ThemeProps<SpeedDialProps>>>) & {
+    Action: RneFunctionComponent<SpeedDialActionProps>;
+};
+export default _default;

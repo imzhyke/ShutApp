@@ -1,0 +1,45 @@
+import React from 'react';
+import { TextProps, TextStyle, ViewStyle, StyleProp, TouchableOpacityProps } from 'react-native';
+import { CheckBoxIconProps } from './CheckBoxIcon';
+import { RneFunctionComponent } from '../helpers';
+export declare type CheckBoxProps = TouchableOpacityProps & CheckBoxIconProps & {
+    Component?: typeof React.Component;
+    iconRight?: boolean;
+    title?: string | React.ReactElement<{}>;
+    titleProps?: TextProps;
+    center?: boolean;
+    right?: boolean;
+    containerStyle?: StyleProp<ViewStyle>;
+    wrapperStyle?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    checkedTitle?: string;
+    fontFamily?: string;
+};
+declare const CheckBox: RneFunctionComponent<CheckBoxProps>;
+export { CheckBox };
+declare const _default: React.FunctionComponent<Omit<TouchableOpacityProps & CheckBoxIconProps & {
+    Component?: typeof React.Component;
+    iconRight?: boolean;
+    title?: string | React.ReactElement<{}, string | React.JSXElementConstructor<any>>;
+    titleProps?: TextProps;
+    center?: boolean;
+    right?: boolean;
+    containerStyle?: StyleProp<ViewStyle>;
+    wrapperStyle?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    checkedTitle?: string;
+    fontFamily?: string;
+} & Partial<import("../config").ThemeProps<CheckBoxProps>>, keyof import("../config").ThemeProps<T>>> | React.ForwardRefExoticComponent<TouchableOpacityProps & CheckBoxIconProps & {
+    Component?: typeof React.Component;
+    iconRight?: boolean;
+    title?: string | React.ReactElement<{}, string | React.JSXElementConstructor<any>>;
+    titleProps?: TextProps;
+    center?: boolean;
+    right?: boolean;
+    containerStyle?: StyleProp<ViewStyle>;
+    wrapperStyle?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
+    checkedTitle?: string;
+    fontFamily?: string;
+} & Partial<import("../config").ThemeProps<CheckBoxProps>>>;
+export default _default;
