@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, ImageBackground, Image, TouchableOpacity, View } from 'react-native';
 import { Auth, signIn } from '../Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import RegisterPage from './Register';
 import LoadingScreen from './LoadingScreen';
-
+import Toast from 'react-native-toast-message';
 import { StatusBar } from 'expo-status-bar';
 
 export default function Login({ navigation }) {
@@ -57,10 +57,17 @@ export default function Login({ navigation }) {
   };
 
   return (
+
+    <ImageBackground resizeMode="cover" source={require('../assets/bgimage.jpg')} style={styles.imgbackground}>
+    <Toast ref= {(ref)=> {Toast.setRef(ref)} }/>
     <View style={styles.container}>
     {loading && <LoadingScreen />}
-      <Text style={styles.title}>Welcome Back!</Text>
-      <Text style={styles.subtitle}>Log in with your email and password</Text>
+    <Image style={{
+            resizeMode: 'contain',
+            zIndex: -20,
+            height: 250,
+            }} source={require('../assets/main.png')} />
+      <Text style={styles.title}>Shut App!</Text>
       <TextInput
         style={styles.input}
         onChangeText={setUsername}
@@ -77,7 +84,7 @@ export default function Login({ navigation }) {
       />
 
       <TouchableOpacity style={[styles.button, styles.loginButton]} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Log In</Text>
+        <Text style={[styles.buttonText,styles.buttonText1]}>Log In</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={[styles.button, styles.registerButton]} onPress={handleRegister}>
@@ -86,6 +93,7 @@ export default function Login({ navigation }) {
 
       <StatusBar style="auto" />
     </View>
+    </ImageBackground>
   );
 }
 
@@ -93,22 +101,21 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    fontSize: 26,
+    color: 'white',
+    fontSize: 45,
     fontWeight: 'bold',
-    marginTop: 50,
-  },
-  subtitle: {
-    fontSize: 18,
-    marginBottom: 30,
+    marginTop: -20,
+    marginBottom: 5,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#D3D3D3',
+    borderColor: '#5B00FF',
+    color: '#1C0A80',
+    backgroundColor: '#E3E3E3',
     borderRadius: 5,
     paddingVertical: 15,
     paddingHorizontal: 25,
@@ -125,14 +132,22 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   loginButton: {
-    backgroundColor: '#F9A620',
+    backgroundColor: '#5B00FF',
   },
   registerButton: {
-    backgroundColor: '#B0B0B0',
+    backgroundColor: 'white',
   },
   buttonText: {
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 18,
+    color: '#5B00FF',
   },
+  buttonText1: {
+    color: 'white',
+  },
+  imgbackground: {
+    flex: 1,
+    width: '100%',
+    },
 });
