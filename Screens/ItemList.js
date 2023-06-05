@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, BackHandler } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, BackHandler, Image } from 'react-native';
 import { Button, FAB } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Auth, db } from '../Firebase';
@@ -42,8 +42,15 @@ export default function ToDo({ navigation }) {
         activeOpacity={0.6}
         style={styles.block}
       >
+        <Image style={{
+            resizeMode: 'contain',
+            width: 100,
+            height: 100,
+            }} source={require('../assets/main.png')} />
+      <View style={{flex:  1, flexDirection: 'column'}}>
         <Text style={styles.blockTitle}>{data.Title}</Text>
         <Text style={styles.blockDescription}>{data.Description}</Text>
+        </View>
       </TouchableOpacity>
     );
   }
@@ -165,6 +172,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     elevation: 5,
+    flexDirection: 'row',
   },
   blockTitle: {
     color: '#ffffff',
