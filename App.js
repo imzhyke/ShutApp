@@ -9,6 +9,8 @@ import Item from './Screens/Item';
 import AddData from './Screens/AddItem';
 import Toast from 'react-native-toast-message';
 import dashboard from './Screens/dashboard';
+import Helpus from './Screens/Helpus';
+import About from './Screens/About';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +24,8 @@ function App() {
         <Stack.Screen name="Item" component={Item} options={{ headerShown: false}}/>
         <Stack.Screen name="Add" component={AddData} options={{ headerShown: false}}/>
         <Stack.Screen name="Dashboard" component={dashboard} options={{ headerShown: false}}/>
+        <Stack.Screen name="Help" component={Helpus} options={{ headerShown: false}}/>
+        <Stack.Screen name="About" component={About} options={{ headerShown: false}}/>
       </Stack.Navigator>
       <Toast />
     </NavigationContainer>

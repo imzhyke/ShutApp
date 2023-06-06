@@ -69,8 +69,16 @@ const dashboard = ({navigation}) => {
         buttonStyle={styles.fab}
       />
     </View>
-    <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Home')}>
+    <TouchableOpacity style={{backgroundColor: 'red'}} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.addButtonText}>VIEW LIST</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={{backgroundColor: 'blue'}} onPress={() => navigation.navigate('About')}>
+          <Text style={styles.addButtonText}>About</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity style={{backgroundColor: 'violet'}} onPress={() => navigation.navigate('Help')}>
+          <Text style={styles.addButtonText}>HElp</Text>
     </TouchableOpacity>
 
   </SafeAreaView>
