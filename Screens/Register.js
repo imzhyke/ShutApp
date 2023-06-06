@@ -46,8 +46,18 @@ export default function RegisterPage({ navigation }) {
   }
 
   return (
+
+    <ImageBackground resizeMode="cover" source={require('../assets/bgimage.jpg')} style={styles.imgbackground}>
     <View style={styles.container}>
+    
           <View style={styles.formContainer}>
+
+          <Image style={{
+            resizeMode: 'contain',
+            zIndex: -20,
+            height: 250,
+            }} source={require('../assets/main.png')} />
+
             <Text style={styles.title}>Create an Account</Text>
             <Text style={styles.subtitle}>Sign up with your email and password</Text>
             <TextInput
@@ -65,14 +75,15 @@ export default function RegisterPage({ navigation }) {
               placeholder="Password"
               secureTextEntry
             />
-            <TouchableOpacity style={[styles.button, styles.registerButton]} onPress={handleRegister}>
+            <TouchableOpacity style={[styles.button, styles.loginButton]} onPress={handleRegister}>
               <Text style={styles.buttonText}>Create Account</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={ [styles.loginButton, styles.button]} onPress={() => navigation.goBack()}>
+            <TouchableOpacity  onPress={() => navigation.goBack()}>
               <Text style={styles.buttonText}>Already have an account? Log in</Text>
             </TouchableOpacity>
           </View>
     </View>
+    </ImageBackground>
   );
 }
 
@@ -105,40 +116,50 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 30,
+    color: 'white',
   },
   subtitle: {
     fontSize: 20,
     marginBottom: 20,
+    color: 'white',
   },
   input: {
-    borderWidth: 2,
-    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: '#5B00FF',
+    color: '#1C0A80',
+    backgroundColor: '#E3E3E3',
+    borderRadius: 5,
     paddingVertical: 15,
     paddingHorizontal: 25,
-    width: '100%',
+    width: '90%',
     marginBottom: 20,
+    zIndex: -1,
   },
   button: {
-    borderRadius: 30,
+    borderRadius: 5,
     paddingVertical: 15,
     paddingHorizontal: 25,
     marginBottom: 20,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  registerButton: {
-    backgroundColor: '#FFA500',
+    width: '90%',
+    zIndex: -1,
   },
   loginButton: {
-    backgroundColor: '#A8A8A8',
-    borderColor: '#FFA500',
-    borderWidth: 1,
+    backgroundColor: '#5B00FF',
+  },
+  registerButton: {
+    backgroundColor: 'white',
   },
   buttonText: {
-    width: '50%',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 18,
+    color: 'white',
   },
+  buttonText1: {
+    color: 'white',
+  },
+  imgbackground: {
+    flex: 1,
+    width: '100%',
+    },
 });

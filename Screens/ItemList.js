@@ -23,6 +23,7 @@ export default function ToDo({ navigation }) {
         oten.push({ ID: element.id, ...element.data() });
       });
       setDataList(oten);
+      console.log(oten.length);
       setIsLoading(false);
     })
   }
@@ -149,6 +150,8 @@ const styles = StyleSheet.create({
     height: 80,
     paddingHorizontal: 20,
     backgroundColor: '#00aabb',
+    borderBottomEndRadius: 20,
+    borderBottomStartRadius: 20,
   },
   title: {
     fontSize: 36,
@@ -168,7 +171,7 @@ const styles = StyleSheet.create({
   },
   block: {
     backgroundColor: '#00aabb',
-    padding: 20,
+    padding: 10,
     borderRadius: 10,
     margin: 10,
     elevation: 5,
@@ -176,9 +179,9 @@ const styles = StyleSheet.create({
   },
   blockTitle: {
     color: '#ffffff',
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginVertical: 10,
   },
   blockDescription: {
     color: '#ffffff',

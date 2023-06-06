@@ -8,6 +8,7 @@ import ToDo from './Screens/ItemList';
 import Item from './Screens/Item';
 import AddData from './Screens/AddItem';
 import Toast from 'react-native-toast-message';
+import dashboard from './Screens/dashboard';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ function App() {
         <Stack.Screen name="Home" component={ToDo} options={{ headerShown: false}}/>
         <Stack.Screen name="Item" component={Item} options={{ headerShown: false}}/>
         <Stack.Screen name="Add" component={AddData} options={{ headerShown: false}}/>
+        <Stack.Screen name="Dashboard" component={dashboard} options={{ headerShown: false}}/>
       </Stack.Navigator>
       <Toast />
     </NavigationContainer>

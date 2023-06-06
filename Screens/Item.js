@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import { FAB } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { db } from '../Firebase';
@@ -139,7 +139,15 @@ export default function Item({ navigation, route}) {
         <Text style={styles.buttonText}>Go Back</Text>
       </TouchableOpacity>
 
+
       <View style={styles.contentContainer}>
+
+      
+      <Image style={{
+            resizeMode: 'contain',
+            zIndex: -20,
+            height: 250,
+            }} source={require('../assets/main.png')} />
         <TextInput
           style={styles.titleInput}
           value={newTitle}
