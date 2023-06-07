@@ -7,7 +7,7 @@ import { signOut } from 'firebase/auth';
 import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
 import LoadingScreen from './LoadingScreen';
 
-const dashboard = ({navigation}) => {
+const Dashboard = ({navigation}) => {
 
   const Block = ({data, nav}) =>{
     let id = data.ID;
@@ -85,7 +85,7 @@ const dashboard = ({navigation}) => {
   )
 }
 
-export default dashboard
+export default Dashboard
 
 const styles = StyleSheet.create({
   headerContainer: {
