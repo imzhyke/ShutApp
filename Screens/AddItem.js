@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import { db } from '../Firebase';
 import { collection, addDoc, query, where, onSnapshot } from 'firebase/firestore';
 import LoadingScreen from './LoadingScreen';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import Toast from 'react-native-toast-message';
 
 export default function AddData({ navigation }) {
@@ -95,9 +96,23 @@ export default function AddData({ navigation }) {
 
   return (
     <View style={styles.container}>
+     <Toast ref1= {(ref)=> {Toast.setRef(ref)} }/>
       <TouchableOpacity style={styles.goBackButton} onPress={() => {navigation.goBack()}}>
-        <Text style={styles.buttonText}>Go Back</Text>
+      <Icon
+          
+          name={'chevron-circle-left'}
+          size={30}
+          color={"white"}
+          />
       </TouchableOpacity>
+
+
+      <Image style={{
+            resizeMode: 'contain',
+            zIndex: -20,
+            height: 250,
+            }} source={require('../assets/add.png')} />
+
 
       <TextInput
         style={styles.titleInput}
@@ -105,7 +120,7 @@ export default function AddData({ navigation }) {
         onChangeText={text => {
           handleChangeTitle(text);
         }}
-        placeholder="Title"
+        placeholder="Secret Name"
       />
 
       <TextInput
@@ -114,12 +129,18 @@ export default function AddData({ navigation }) {
         onChangeText={text => {
           handleChangeDescription(text);
         }}
-        placeholder="Description"
+        placeholder="Description.."
         multiline
         numberOfLines={5}
       />
 
       <TouchableOpacity style={styles.submitButton} onPress={handleAddData}>
+      <Icon
+          style={{ marginHorizontal: 10}}
+          name={'paper-plane'}
+          size={30}
+          color={"white"}
+          />
         <Text style={styles.submitButtonText}>Submit</Text>
       </TouchableOpacity>
 
@@ -140,7 +161,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     padding: 10,
     borderRadius: 5,
     elevation: 5,
@@ -153,15 +174,16 @@ const styles = StyleSheet.create({
     overflow: 'visible',
     borderWidth: 2,
     paddingHorizontal: 20,
-    borderColor: '#00aabb',
+    borderColor: '#5B00FF',
     paddingVertical: 10,
     borderRadius: 5,
     marginBottom: 30,
     width: 300,
+    zIndex: -22,
   },
   descriptionInput: {
     borderWidth: 2,
-    borderColor: '#00aabb',
+    borderColor: '#5B00FF',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
@@ -170,15 +192,20 @@ const styles = StyleSheet.create({
     width: 300,
   },
   submitButton: {
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     padding: 10,
+    justifyContent: 'center',
     borderRadius: 5,
     elevation: 5,
+    flexDirection: 'row',
+    width: '100%'
   },
   submitButtonText: {
     color: '#ffffff',
     fontWeight: 'bold',
     textAlign: 'center',
+    marginTop: 3,
+    marginRight: 15,
     fontSize: 18,
   },
   buttonText: {
@@ -186,5 +213,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize: 18,
+    
   },
 });

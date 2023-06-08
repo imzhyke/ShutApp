@@ -75,6 +75,7 @@ const Dashboard00 = ({navigation}) => {
     
   return (
     <View>
+       
     <View style={styles.headerContainer}>
     <View>
     <Image style={{
@@ -86,7 +87,7 @@ const Dashboard00 = ({navigation}) => {
         <View style={{flexDirection: 'column', marginHorizontal: 30, paddingVertical: 15}}>
  
         <Text style={styles.title}>Welcome</Text>
-        <Text style={{marginHorizontal: -20, color: 'white', fontWeight: 'bold'}}>{Auth.currentUser?.email}</Text>
+        <Text style={{marginHorizontal: -15, color: 'white', fontWeight: 'bold', marginBottom: 15}}>{Auth.currentUser?.email}</Text>
         </View>
    
       {/* <FAB
@@ -112,18 +113,18 @@ const Dashboard00 = ({navigation}) => {
     <TouchableOpacity style={{backgroundColor: 'violet'}} onPress={() => navigation.navigate('Help')}>
           <Text style={styles.addButtonText}>HElp</Text>
     </TouchableOpacity> */ }
-    <View style={{backgroundColor: '#00aabb', height: 150, borderRadius: 20, margin: 20, flexDirection: 'row'}}>
+    <View style={{backgroundColor: '#5B00FF', height: 150, borderRadius: 20, margin: 20, flexDirection: 'row'}}>
 
         <Image style={{
             resizeMode: 'contain',
             width: 150,
             height: 150,
             }} source={require('../assets/listt.png')} />
-          <View style={{flexDirection:'column'}}>
-          <Text>
+          <View style={{flexDirection:'column',paddingVertical: 25, marginLeft: 20}}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20}}>
                 Total
           </Text>
-          <Text>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 60}}>
                 {num}
           </Text>
           </View>
@@ -140,9 +141,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 100,
+    height: 130,
     paddingHorizontal: 20,
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20,
   },
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     flex: 1,
     marginLeft: -20,
+    marginTop: 15,
   },
   contentContainer: {
     flexGrow: 1,

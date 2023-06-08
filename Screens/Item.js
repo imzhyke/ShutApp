@@ -6,6 +6,8 @@ import { db } from '../Firebase';
 import { getDoc, doc, updateDoc, deleteDoc, query, collection, where, getDocs, onSnapshot } from 'firebase/firestore';
 import LoadingScreen from './LoadingScreen';
 import Toast from 'react-native-toast-message';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Item({ navigation, route}) {
   const [data, setData] = useState(Object);
@@ -14,6 +16,7 @@ export default function Item({ navigation, route}) {
   const [loading, setLoading] = useState(false); 
   const [existing, setExisting] = useState(false);
   const [defaultText, setDefaultText] = useState("");
+  
 
 
   useEffect(() => {
@@ -134,10 +137,17 @@ export default function Item({ navigation, route}) {
   }
 
   return (
+
     <SafeAreaView style={styles.container}>
       {loading && <LoadingScreen />}
+      
       <TouchableOpacity style={styles.goBackButton} onPress={() => {navigation.goBack()}}>
-        <Text style={styles.buttonText}>Go Back</Text>
+      <Icon
+          
+          name={'chevron-circle-left'}
+          size={30}
+          color={"white"}
+          />
       </TouchableOpacity>
 
 
@@ -148,7 +158,8 @@ export default function Item({ navigation, route}) {
             resizeMode: 'contain',
             zIndex: -20,
             height: 250,
-            }} source={require('../assets/main.png')} />
+            marginBottom: 20,
+            }} source={require('../assets/where.png')} />
         <TextInput
           style={styles.titleInput}
           value={newTitle}
@@ -165,15 +176,29 @@ export default function Item({ navigation, route}) {
         <View style={styles.buttonsContainer}>
 
           <TouchableOpacity style={styles.editButton} onPress={handleUpdate}>
-            <Text style={styles.buttonText}>Edit</Text>
+          <Icon
+          style={{ marginHorizontal: 10}}
+          name={'edit'}
+          size={20}
+          color={"white"}
+          />
+           <Text style={{color: 'white', fontWeight: 'bold'}}>Edit</Text>
           </TouchableOpacity>
 
 
           <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
-            <Text style={styles.buttonText}>Delete</Text>
+          <Icon
+          style={{ marginHorizontal: 8}}
+          name={'trash'}
+          size={20}
+          color={"white"}
+          />
+          <Text style={{color: 'white', fontWeight: 'bold'}}>Remove</Text>
+           
           </TouchableOpacity>
         </View>
       </View>
+      
     </SafeAreaView>
   );
 }
@@ -188,11 +213,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     padding: 10,
     borderRadius: 5,
     elevation: 5,
-    zIndex: 992,
+    zIndex: -1,
   },
   contentContainer: {
     flex: 1,
@@ -203,7 +228,7 @@ const styles = StyleSheet.create({
     zIndex: -1, 
   },
   titleInput: {
-    minWidth: 200,
+    width: '100%',
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 30,
@@ -211,14 +236,14 @@ const styles = StyleSheet.create({
     overflow: 'visible',
     borderWidth: 2,
     paddingHorizontal: 20,
-    borderColor: '#00aabb',
+    borderColor: '#5B00FF',
     paddingVertical: 10,
     borderRadius: 5,
     zIndex: -1,
   },
   descriptionInput: {
     borderWidth: 2,
-    borderColor: '#00aabb',
+    borderColor: '#5B00FF',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,
@@ -233,18 +258,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   editButton: {
-    backgroundColor: '#00aabb',
+    width: '40%',
+    backgroundColor: '#5B00FF',
     padding: 10,
     borderRadius: 5,
     marginRight: 20,
     elevation: 5,
+    flexDirection: 'row',
     zIndex: -1,
   },
   deleteButton: {
+    width: '40%',
     backgroundColor: 'red',
     padding: 10,
     borderRadius: 5,
     elevation: 5,
+    flexDirection: 'row',
     zIndex: -1,
   },
   buttonText: {

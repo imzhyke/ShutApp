@@ -22,7 +22,8 @@ function TheNav(){
 
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{headerShown: false,tabBarStyle: { paddingVertical:10, borderTopColor: 20, height: 60 , paddingBottom: 11}}
+      screenOptions={{tabBarInactiveTintColor: '#5B00FF', tabBarActiveTintColor: 'white', tabBarAllowFontScaling: 10, headerShown: false,tabBarStyle: { backgroundColor:'#5B00FF', paddingVertical:10, borderTopColor: 'white', height: 60 , paddingBottom: 11}}
+    
     }
      
       
@@ -30,12 +31,13 @@ function TheNav(){
       <Tab.Screen
         name= "Home"
         component={Dashboard}
-        options={{ title: 'Home',
+    
+        options={{ title: 'Home', 
         tabBarIcon:({size,color})=>(
           <Icon
           name={'home'}
           size={20}
-          color={"blue"}
+          color={"white"}
          />
         )
       }}
@@ -43,13 +45,14 @@ function TheNav(){
 
       <Tab.Screen
         name= "List"
+        
         component={ToDo}
-        options={{ title: 'List',
+        options={{ title: 'List', 
         tabBarIcon:({size,color})=>(
           <Icon
           name={'th-list'}
           size={20}
-          color={"blue"}
+          color={"white"}
          />
         )
       }}
@@ -63,7 +66,7 @@ function TheNav(){
           <Icon
           name={'user'}
           size={20}
-          color={"blue"}
+          color={"white"}
          />
         )
       }}
@@ -77,7 +80,7 @@ function TheNav(){
           <Icon
           name={'info-circle'}
           size={20}
-          color={"blue"}
+          color={"white"}
          />
         )
       }}

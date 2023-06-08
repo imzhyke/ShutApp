@@ -110,7 +110,7 @@ export default function ToDo({ navigation }) {
     <SafeAreaView style={{flex:1, backgroundColor: '#ffffff'}}>
       
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>Item List</Text>
+        <Text style={styles.title}>Unsecured Secrets</Text>
         {/* <FAB
           title="Logout"
           color="#ffffff"
@@ -138,7 +138,12 @@ export default function ToDo({ navigation }) {
 
       <View style={styles.addButtonContainer}>
         <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Add')}>
-          <Text style={styles.addButtonText}>+</Text>
+        <Icon
+          style={{ marginHorizontal: 10,}}
+          name={'plus'}
+          size={30}
+          color={"white"}
+          />
         </TouchableOpacity>
       </View>
 
@@ -153,12 +158,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 100,
     paddingHorizontal: 20,
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     borderBottomEndRadius: 20,
     borderBottomStartRadius: 20,
   },
   title: {
-    fontSize: 36,
+    fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#ffffff',
@@ -174,7 +179,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   block: {
-    backgroundColor: '#00aabb',
+    backgroundColor: '#5B00FF',
     padding: 10,
     borderRadius: 10,
     margin: 10,
@@ -197,7 +202,7 @@ const styles = StyleSheet.create({
     right: 20,
   },
   addButton: {
-    backgroundColor: '#ff7f50',
+    backgroundColor: '#11cf44',
     borderRadius: 50,
     width: 60,
     height: 60,
