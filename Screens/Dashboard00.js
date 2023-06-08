@@ -3,11 +3,12 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert,
 import { Button, FAB } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Auth, db } from '../Firebase';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { signOut } from 'firebase/auth';
 import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
 import LoadingScreen from './LoadingScreen';
 
-const Dashboard = ({navigation}) => {
+const Dashboard00 = ({navigation}) => {
 
   const Block = ({data, nav}) =>{
     let id = data.ID;
@@ -57,8 +58,11 @@ const Dashboard = ({navigation}) => {
       
     <View style={styles.headerContainer}>
     <View>
-
-
+    <Image style={{
+            resizeMode: 'contain',
+            width: 70,
+            height: 70,
+            }} source={require('../assets/user.png')} />
     </View>
 
       <Text style={styles.title}>Item List</Text>
@@ -85,14 +89,14 @@ const Dashboard = ({navigation}) => {
   )
 }
 
-export default Dashboard
+export default Dashboard00
 
 const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 200,
+    height: 100,
     paddingHorizontal: 20,
     backgroundColor: '#00aabb',
     borderBottomEndRadius: 20,

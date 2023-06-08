@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, BackHandler, Image } from 'react-native';
 import { Button, FAB } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Auth, db } from '../Firebase';
 import { signOut } from 'firebase/auth';
 import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestore';
@@ -210,6 +211,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 10,
+    marginBottom: 5,
   },
   searchInput: {
     backgroundColor: '#e1e1e1',
@@ -218,6 +220,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     marginRight: 10,
     flex: 1,
+    
   },
   searchButton: {
     backgroundColor: '#ff7f50',

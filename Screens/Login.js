@@ -6,11 +6,13 @@ import RegisterPage from './Register';
 import LoadingScreen from './LoadingScreen';
 import Toast from 'react-native-toast-message';
 import { StatusBar } from 'expo-status-bar';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default function Login({ navigation }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [hidePass, setHidePass] = useState(true);
 
   const handleLogin = () => {
     setLoading(true);
@@ -59,7 +61,7 @@ export default function Login({ navigation }) {
   return (
 
     <ImageBackground resizeMode="cover" source={require('../assets/bgimage.jpg')} style={styles.imgbackground}>
-    <Toast ref= {(ref)=> {Toast.setRef(ref)} }/>
+    <Toast ref1= {(ref1)=> {Toast.setRef(ref1)} }/>
     <View style={styles.container}>
     {loading && <LoadingScreen />}
     <Image style={{
@@ -82,6 +84,9 @@ export default function Login({ navigation }) {
         placeholder="Password"
         secureTextEntry
       />
+
+     
+    
 
       <TouchableOpacity style={[styles.button, styles.loginButton]} onPress={handleLogin}>
         <Text style={[styles.buttonText,styles.buttonText1]}>Log In</Text>

@@ -75,12 +75,13 @@ export default function Item({ navigation, route}) {
         resolve(dataList);
       }, (error) => {
         reject(error);
+        console.log('Error checking database: ' + error.message); 
       });
     }).then((dataList) => {
       console.log(dataList.length != 0)
       return dataList.length != 0;
     }).catch((error) => {
-      console.log('Error checking database: ' + error.message);
+     console.log('Error checking database: ' + error.message); 
       return false;
     });
   }

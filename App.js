@@ -3,14 +3,14 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import Login from './Screens/Login';
 import RegisterPage from './Screens/Register';
 import ToDo from './Screens/ItemList';
 import Item from './Screens/Item';
 import AddData from './Screens/AddItem';
 // import Toast from 'react-native-toast-message';
-import Dashboard from './Screens/dashboard';
+import Dashboard from './Screens/Dashboard00';
 import Helpus from './Screens/Helpus';
 import About from './Screens/About';
 
@@ -22,7 +22,7 @@ function TheNav(){
 
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{headerShown: false,tabBarStyle: { paddingBottom: 20 }}
+      screenOptions={{headerShown: false,tabBarStyle: { paddingVertical:10}}
     }
      
       
@@ -32,8 +32,11 @@ function TheNav(){
         component={Dashboard}
         options={{ title: 'Home',
         tabBarIcon:({size,color})=>(
-            <MaterialCommunityIcons
-            size={size} color={color}/>
+          <Icon
+          name={'home'}
+          size={20}
+          color={"blue"}
+         />
         )
       }}
       />
@@ -43,8 +46,11 @@ function TheNav(){
         component={ToDo}
         options={{ title: 'List',
         tabBarIcon:({size,color})=>(
-            <MaterialCommunityIcons
-            size={size} color={color}/>
+          <Icon
+          name={'th-list'}
+          size={20}
+          color={"blue"}
+         />
         )
       }}
       />
@@ -62,6 +68,9 @@ function App() {
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Register" component={RegisterPage}/>
         <Stack.Screen name="TheNav" component={TheNav}/>
+
+        <Stack.Screen name="Item" component={Item}/>
+        <Stack.Screen name="Add" component={AddData}/>
         {/* <Stack.Screen name="Home" component={ToDo}/>
         <Stack.Screen name="Item" component={Item}/>
         <Stack.Screen name="Add" component={AddData}/>
