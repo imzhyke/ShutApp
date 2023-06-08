@@ -22,7 +22,7 @@ function TheNav(){
 
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{headerShown: false,tabBarStyle: { paddingVertical:10}}
+      screenOptions={{headerShown: false,tabBarStyle: { paddingVertical:10, borderTopColor: 20, height: 60 , paddingBottom: 11}}
     }
      
       
@@ -48,6 +48,34 @@ function TheNav(){
         tabBarIcon:({size,color})=>(
           <Icon
           name={'th-list'}
+          size={20}
+          color={"blue"}
+         />
+        )
+      }}
+      /> 
+      
+      <Tab.Screen
+        name= "Helpus"
+        component={Helpus}
+        options={{ title: 'User',
+        tabBarIcon:({size,color})=>(
+          <Icon
+          name={'user'}
+          size={20}
+          color={"blue"}
+         />
+        )
+      }}
+      />
+
+  <Tab.Screen
+        name= "About"
+        component={About}
+        options={{ title: 'About',
+        tabBarIcon:({size,color})=>(
+          <Icon
+          name={'info-circle'}
           size={20}
           color={"blue"}
          />

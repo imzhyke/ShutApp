@@ -39,6 +39,7 @@ export default function ToDo({ navigation }) {
   const Block = ({data, nav}) =>{
     let id = data.ID;
     return (
+        
       <TouchableOpacity
         onPress={() => {nav.navigate('Item', id); setIsOnFirst(false);}}
         activeOpacity={0.6}
@@ -51,34 +52,34 @@ export default function ToDo({ navigation }) {
             }} source={require('../assets/main.png')} />
       <View style={{flex:  1, flexDirection: 'column'}}>
         <Text style={styles.blockTitle}>{data.Title}</Text>
-        <Text style={styles.blockDescription}>{data.Description}</Text>
+        <Text style={styles.blockDescription}>{data.Description}</Text> 
         </View>
       </TouchableOpacity>
     );
   }
 
-  const handleLogout = () => {
-    Alert.alert(
-      'Logout',
-      'Are you sure you want to logout?',
-      [
-        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
-        {
-          text: 'Logout',
-          onPress: () => {
-            signOut(Auth).then(() => {
-              navigation.replace('Login');
-            }).catch((error) => {
-              let errorMessage = error.message;
-              alert(errorMessage); // Show the error message on an alert box
-            })
-          },
-          style: 'destructive',
-        },
-      ],
-      {cancelable: true},
-    );
-  }
+  // const handleLogout = () => {
+  //   Alert.alert(
+  //     'Logout',
+  //     'Are you sure you want to logout?',
+  //     [
+  //       {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+  //       {
+  //         text: 'Logout',
+  //         onPress: () => {
+  //           signOut(Auth).then(() => {
+  //             navigation.replace('Login');
+  //           }).catch((error) => {
+  //             let errorMessage = error.message;
+  //             alert(errorMessage); // Show the error message on an alert box
+  //           })
+  //         },
+  //         style: 'destructive',
+  //       },
+  //     ],
+  //     {cancelable: true},
+  //   );
+  // }
 
   const handleSearch = () => {
     if (searchQuery !== '') {
@@ -94,7 +95,9 @@ export default function ToDo({ navigation }) {
         setDataList(oten);
       })
     } else {
+
       getData();
+     
     }
   }
   
@@ -108,12 +111,12 @@ export default function ToDo({ navigation }) {
       
       <View style={styles.headerContainer}>
         <Text style={styles.title}>Item List</Text>
-        <FAB
+        {/* <FAB
           title="Logout"
           color="#ffffff"
           onPress={handleLogout}
           buttonStyle={styles.fab}
-        />
+        /> */}
       </View>
 
       <View style={styles.searchContainer}>
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 80,
+    height: 100,
     paddingHorizontal: 20,
     backgroundColor: '#00aabb',
     borderBottomEndRadius: 20,
@@ -214,12 +217,14 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   searchInput: {
-    backgroundColor: '#e1e1e1',
+    backgroundColor: '#f2f2f2',
     borderRadius: 25,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    marginRight: 10,
+    marginHorizontal: 10,
     flex: 1,
+    borderWidth: 1,
+    borderColor: 'blue',
     
   },
   searchButton: {

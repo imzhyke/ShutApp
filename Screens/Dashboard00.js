@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert, BackHandler, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, TextInput, ImageBackground, TouchableOpacity, View, Alert, BackHandler, Image } from 'react-native';
 import { Button, FAB } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Auth, db } from '../Firebase';
@@ -9,6 +9,26 @@ import { collection, onSnapshot, query, orderBy, where } from 'firebase/firestor
 import LoadingScreen from './LoadingScreen';
 
 const Dashboard00 = ({navigation}) => {
+  const [dataList, setDataList] = useState([]);
+  const [num, setNum] = useState([]);
+
+  function getData() {
+    const docs = collection(db, 'Data');
+    const ref = query(docs, orderBy('createdAt', 'desc'));
+    onSnapshot(ref, (ducs) => {
+      const oten = [];
+      ducs.forEach((element) => {
+        oten.push({ ID: element.id, ...element.data() });
+      });
+      setDataList(oten);
+      console.log(oten.length);
+      setNum(oten.length);
+    })
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const Block = ({data, nav}) =>{
     let id = data.ID;
@@ -54,8 +74,7 @@ const Dashboard00 = ({navigation}) => {
       }
     
   return (
-    <SafeAreaView style={{flex:1, backgroundColor: '#ffffff'}}>
-      
+    <View>
     <View style={styles.headerContainer}>
     <View>
     <Image style={{
@@ -64,16 +83,25 @@ const Dashboard00 = ({navigation}) => {
             height: 70,
             }} source={require('../assets/user.png')} />
     </View>
+        <View style={{flexDirection: 'column', marginHorizontal: 30, paddingVertical: 15}}>
 
-      <Text style={styles.title}>Item List</Text>
-      <FAB
+        <Text style={styles.title}>Welcome</Text>
+        <Text style={{marginHorizontal: -20, color: 'white', fontWeight: 'bold'}}>{Auth.currentUser?.email}</Text>
+        </View>
+   
+      {/* <FAB
         title="Logout"
         color="#ffffff"
-        onPress={handleLogout}
-        buttonStyle={styles.fab}
-      />
+        
+      /> */}
+       <Icon
+       style={{marginLeft: 30}}
+          name={'sign-out-alt'}
+          size={20}
+          color={"white"}
+          onPress={handleLogout}/>
     </View>
-    <TouchableOpacity style={{backgroundColor: 'red'}} onPress={() => navigation.navigate('Home')}>
+    {/* /* <TouchableOpacity style={{backgroundColor: 'red'}} onPress={() => navigation.navigate('Home')}>
           <Text style={styles.addButtonText}>VIEW LIST</Text>
     </TouchableOpacity>
 
@@ -83,9 +111,19 @@ const Dashboard00 = ({navigation}) => {
 
     <TouchableOpacity style={{backgroundColor: 'violet'}} onPress={() => navigation.navigate('Help')}>
           <Text style={styles.addButtonText}>HElp</Text>
-    </TouchableOpacity>
-
-  </SafeAreaView>
+    </TouchableOpacity> */ }
+    <View style={{backgroundColor: '#00aabb', height: 150, borderRadius: 20, margin: 20, flexDirection: 'row'}}>
+          <View style={{flexDirection:'column'}}>
+          <Text>
+                Total
+          </Text>
+          <Text>
+                {num}
+          </Text>
+          </View>
+          
+    </View>
+</View>
   )
 }
 
@@ -108,12 +146,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
     flex: 1,
-  },
-  fab: {
-    backgroundColor: '#ff7f50',
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    borderRadius: 50,
+    marginLeft: -20,
   },
   contentContainer: {
     flexGrow: 1,
@@ -136,5 +169,9 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 16,
   },
+    imgbackground: {
+    flex: 1,
+    width: '100%',
+    },
 
 });
