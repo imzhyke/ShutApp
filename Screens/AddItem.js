@@ -37,7 +37,11 @@ export default function AddData({ navigation }) {
 
   async function handleAddData() {
     if (!newTitle || !newDescription) {
-      alert('Please enter a title and description.');
+      Toast.show({
+        type: 'error',
+        text1: 'Please enter a title and description.',
+      });
+    
       return;
     }
     setIsLoading(true);

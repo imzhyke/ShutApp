@@ -28,10 +28,10 @@ export default function Login({ navigation }) {
             errorMessage = 'Invalid email address format!';
             break;
           case 'auth/user-not-found':
-            errorMessage = 'Invalid email or password, please try again.';
+            errorMessage = 'User not found, please try again.';
             break;
             case 'auth/wrong-password':
-              errorMessage = 'Invalid email or password, please try again.';
+              errorMessage = 'Incorrect password, please try again.';
               break;
               case 'auth/missing-password':
                 errorMessage = 'Password should not be empty!';
@@ -40,7 +40,11 @@ export default function Login({ navigation }) {
             errorMessage = error.message;
             break;
         }
-        alert(errorMessage);
+        Toast.show({
+          type: 'error',
+          text1: errorMessage,
+        });
+        // alert(errorMessage);
       });
   };
 
@@ -61,13 +65,13 @@ export default function Login({ navigation }) {
   return (
 
     <ImageBackground resizeMode="cover" source={require('../assets/bgimage.jpg')} style={styles.imgbackground}>
-    <Toast ref1= {(ref1)=> {Toast.setRef(ref1)} }/>
+    <Toast style={{zIndex: 99999}} ref1= {(ref1)=> {Toast.setRef(ref1)} }/>
     <View style={styles.container}>
     {loading && <LoadingScreen />}
     <Image style={{
             resizeMode: 'contain',
-            zIndex: -20,
-            height: 250,
+            zIndex: -99920,
+            height: 200,
             }} source={require('../assets/main.png')} />
       <Text style={styles.title}>Shut App!</Text>
       <TextInput
@@ -108,6 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 30,
   },
   title: {
     color: 'white',

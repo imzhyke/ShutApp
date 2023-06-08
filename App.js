@@ -22,7 +22,7 @@ function TheNav(){
 
     <Tab.Navigator
       initialRouteName="Home"
-      screenOptions={{tabBarInactiveTintColor: '#5B00FF', tabBarActiveTintColor: 'white', tabBarAllowFontScaling: 10, headerShown: false,tabBarStyle: { backgroundColor:'#5B00FF', paddingVertical:10, borderTopColor: 'white', height: 60 , paddingBottom: 11}}
+      screenOptions={{tabBarInactiveTintColor: '#5B00FF', tabBarActiveTintColor: 'white', headerShown: false,tabBarStyle: { backgroundColor:'#5B00FF', paddingVertical:10, borderTopColor: 'white', height: 60 , paddingBottom: 11}}
     
     }
      
