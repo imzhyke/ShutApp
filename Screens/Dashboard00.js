@@ -84,7 +84,7 @@ const Dashboard00 = ({navigation}) => {
             }} source={require('../assets/user.png')} />
     </View>
         <View style={{flexDirection: 'column', marginHorizontal: 30, paddingVertical: 15}}>
-
+ 
         <Text style={styles.title}>Welcome</Text>
         <Text style={{marginHorizontal: -20, color: 'white', fontWeight: 'bold'}}>{Auth.currentUser?.email}</Text>
         </View>
@@ -113,6 +113,12 @@ const Dashboard00 = ({navigation}) => {
           <Text style={styles.addButtonText}>HElp</Text>
     </TouchableOpacity> */ }
     <View style={{backgroundColor: '#00aabb', height: 150, borderRadius: 20, margin: 20, flexDirection: 'row'}}>
+
+        <Image style={{
+            resizeMode: 'contain',
+            width: 150,
+            height: 150,
+            }} source={require('../assets/listt.png')} />
           <View style={{flexDirection:'column'}}>
           <Text>
                 Total
